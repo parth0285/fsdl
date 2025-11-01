@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List Example</title>
+    <style>
+        /* Global styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+            margin-top: 30px;
+        }
+
+        /* Unordered List Styles */
+        ul {
+            list-style-type: none; /* Remove default bullets */
+            padding: 0;
+            text-align: left;
+            max-width: 600px;
+            margin: 0 auto 40px auto;
+        }
+
+        ul li {
+            background-color: #ffffff;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            font-size: 18px;
+        }
+
+        ul li::before {
+            content: "✔ "; /* Custom bullet point */
+            color: #4CAF50;
+            font-size: 20px;
+        }
+
+        /* Ordered List Styles */
+        ol {
+            padding-left: 20px;
+            text-align: left;
+            max-width: 600px;
+            margin: 0 auto 40px auto;
+        }
+
+        ol li {
+            background-color: #ffffff;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            font-size: 18px;
+        }
+
+        ol li::before {
+            content: "• "; /* Custom bullet point for ordered list */
+            color: #4CAF50;
+            font-size: 20px;
+        }
+
+        /* Styling for a nested list */
+        .nested-list {
+            margin-left: 20px;
+            font-size: 16px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>List Example</h1>
+
+    <!-- Unordered List -->
+    <div>
+        <h2>Unordered List</h2>
+        <ul>
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+            <li>Item 4</li>
+            <li>Item 5</li>
+        </ul>
+    </div>
+
+    <!-- Ordered List -->
+    <div>
+        <h2>Ordered List</h2>
+        <ol>
+            <li>Step 1: Open the application</li>
+            <li>Step 2: Sign in</li>
+            <li>Step 3: Select your desired option</li>
+            <li>Step 4: Complete the process</li>
+            <li>Step 5: Log out</li>
+        </ol>
+    </div>
+
+    <!-- Nested List Example -->
+    <div>
+        <h2>Nested List</h2>
+        <ul>
+            <li>Main Item 1
+                <ul class="nested-list">
+                    <li>Sub Item 1.1</li>
+                    <li>Sub Item 1.2</li>
+                    <li>Sub Item 1.3</li>
+                </ul>
+            </li>
+            <li>Main Item 2
+                <ul class="nested-list">
+                    <li>Sub Item 2.1</li>
+                    <li>Sub Item 2.2</li>
+                </ul>
+            </li>
+            <li>Main Item 3</li>
+        </ul>
+    </div>
+
+</body>
+</html>

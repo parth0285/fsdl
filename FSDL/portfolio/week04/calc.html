@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.calculator-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    width: 320px;
+    text-align: center;
+}
+
+.display input {
+    width: 100%;
+    padding: 15px;
+    font-size: 24px;
+    text-align: right;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    background-color: #f7f7f7;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.button {
+    padding: 20px;
+    font-size: 18px;
+    background-color: #f0f0f0;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.button:active {
+    background-color: #ddd;
+}
+
+.operator {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.operator:active {
+    background-color: #45a049;
+}
+
+button:focus {
+    outline: none;
+}
+
+    </style>
+</head>
+<body>
+
+    <div class="calculator-container">
+        <div class="display">
+            <input type="text" id="display" disabled />
+        </div>
+        <div class="buttons">
+            <button class="button" onclick="appendNumber(7)">7</button>
+            <button class="button" onclick="appendNumber(8)">8</button>
+            <button class="button" onclick="appendNumber(9)">9</button>
+            <button class="button operator" onclick="setOperation('+')">+</button>
+
+            <button class="button" onclick="appendNumber(4)">4</button>
+            <button class="button" onclick="appendNumber(5)">5</button>
+            <button class="button" onclick="appendNumber(6)">6</button>
+            <button class="button operator" onclick="setOperation('-')">-</button>
+
+            <button class="button" onclick="appendNumber(1)">1</button>
+            <button class="button" onclick="appendNumber(2)">2</button>
+            <button class="button" onclick="appendNumber(3)">3</button>
+            <button class="button operator" onclick="setOperation('*')">*</button>
+
+            <button class="button" onclick="appendNumber(0)">0</button>
+            <button class="button" onclick="clearDisplay()">C</button>
+            <button class="button" onclick="calculateResult()">=</button>
+            <button class="button operator" onclick="setOperation('/')">/</button>
+        </div>
+    </div>
+
+    <script>
+        let currentInput = '';
+let operation = '';
+let previousInput = '';
+
+function appendNumber(number) {
+    currentInput += number.toString();
+    document.getElementById('display').value = currentInput;
+}
+
+function setOperation(op) {
+    if (currentInput === '') return;
+    if (previousInput !== '') {
+        calculateResult();
+    }
+    operation = op;
+    previousInput = currentInput;
+    currentInput = '';
+}
+
+function calculateResult() {
+    if (currentInput === '' || previousInput === '') return;
+
+    let result;
+    const prev = parseFloat(previousInput);
+    const current = parseFloat(currentInput);
+
+    switch (operation) {
+        case '+':
+            result = prev + current;
+            break;
+        case '-':
+            result = prev - current;
+            break;
+        case '*':
+            result = prev * current;
+            break;
+        case '/':
+            if (current === 0) {
+                alert('Cannot divide by zero');
+                return;
+            }
+            result = prev / current;
+            break;
+        default:
+            return;
+    }
+
+    currentInput = result.toString();
+    operation = '';
+    previousInput = '';
+    document.getElementById('display').value = currentInput;
+}
+
+function clearDisplay() {
+    currentInput = '';
+    previousInput = '';
+    operation = '';
+    document.getElementById('display').value = '';
+}
+
+    </script>
+</body>
+</html>

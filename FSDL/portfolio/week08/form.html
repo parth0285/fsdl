@@ -1,0 +1,84 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+div[ng-app="myApp"] {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+}
+
+p {
+    margin: 10px 0;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+input:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+p:last-of-type {
+    font-weight: bold;
+    color: #333;
+    margin-top: 15px;
+    background: #e0f7fa;
+    padding: 10px;
+    border-radius: 5px;
+}
+input.ng-invalid {
+    background-color: rgb(255, 8, 8);
+    display: "";
+}
+
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+<body>
+   
+    <div ng-app="myApp" ng-controller="myCtrl" ng-init="Age=22">
+        
+        <form name="myForm">
+        <p>Name: <input type="text" ng-model="Name" required></p>
+        <p>Surname: <input type="text" ng-model="Surname" required></p>
+        <p>Email: <input type="email" name="Email" ng-model="Email" required></p>
+        <span ng-show="="myForm.Email.$dirty && myForm.Email.$invalid">Invalid email</span>
+        <p>Age: <input type="number" ng-model="Age" required></p>
+        <p>Full name: {{Name + " " + Surname}}</p>
+        <p>Age: {{Age}}</p>
+        <p>Email: {{Email}}</p>
+        </form>
+      </div>      
+      <script>
+        var app = angular.module('myApp',[])
+        app.controller('myCtrl',function($scope){
+            $scope.Name = "Ashley"
+            $scope.Surname = "Fernandes"
+        });
+      </script>
+</body>
+</html>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Menu Cart</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    width: 80%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1, h2 {
+    color: #333;
+}
+
+.menu {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.menu-item {
+    background-color: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 200px;
+}
+
+.menu-item h3 {
+    color: #333;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.cart {
+    margin-top: 20px;
+    width: 100%;
+    max-width: 400px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.cart ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.cart li {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+}
+
+#checkout {
+    width: 100%;
+    background-color: #2196F3;
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#checkout:hover {
+    background-color: #0b7dda;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Restaurant Menu</h1>
+
+        <div class="menu">
+            <div class="menu-item" data-name="Pizza" data-price="12">
+                <h3>Pizza</h3>
+                <p>$12</p>
+                <button onclick="addToCart('Pizza', 12)">Add to Cart</button>
+            </div>
+            <div class="menu-item" data-name="Burger" data-price="8">
+                <h3>Burger</h3>
+                <p>$8</p>
+                <button onclick="addToCart('Burger', 8)">Add to Cart</button>
+            </div>
+            <div class="menu-item" data-name="Pasta" data-price="10">
+                <h3>Pasta</h3>
+                <p>$10</p>
+                <button onclick="addToCart('Pasta', 10)">Add to Cart</button>
+            </div>
+            <div class="menu-item" data-name="Salad" data-price="6">
+                <h3>Salad</h3>
+                <p>$6</p>
+                <button onclick="addToCart('Salad', 6)">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="cart">
+            <h2>Shopping Cart</h2>
+            <ul id="cart-list">
+                <!-- Cart items will appear here -->
+            </ul>
+            <p>Total: $<span id="total-price">0</span></p>
+            <button id="checkout" onclick="checkout()">Checkout</button>
+        </div>
+    </div>
+
+    <script>
+        let cart = [];
+let totalPrice = 0;
+
+function addToCart(name, price) {
+    // Add item to cart array
+    cart.push({ name, price });
+    totalPrice += price;
+    
+    // Update cart UI
+    updateCart();
+}
+
+function updateCart() {
+    const cartList = document.getElementById('cart-list');
+    cartList.innerHTML = ''; // Clear the cart
+
+    cart.forEach(item => {
+        const listItem = document.createElement('li');
+        listItem.textContent = `${item.name} - $${item.price}`;
+        cartList.appendChild(listItem);
+    });
+
+    // Update total price
+    document.getElementById('total-price').textContent = totalPrice;
+}
+
+function checkout() {
+    if (cart.length === 0) {
+        alert('Your cart is empty. Please add items to your cart.');
+        return;
+    }
+    
+    alert(`Your total is $${totalPrice}. Thank you for your order!`);
+    cart = [];
+    totalPrice = 0;
+    updateCart();
+}
+
+    </script>
+</body>
+</html>

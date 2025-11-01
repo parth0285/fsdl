@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello World with AngularJS</title>
+    <!-- Inline CSS -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+        }
+        input {
+            padding: 10px;
+            margin-top: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        p {
+            color: #555;
+            font-size: 18px;
+        }
+    </style>
+    <!-- Include AngularJS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script>
+        // Define AngularJS module and controller
+        angular.module('myApp', [])
+            .controller('HelloController', function($scope) {
+                // Initialize the message
+                $scope.message = "World";
+            });
+    </script>
+</head>
+<body>
+    <div class="container" ng-controller="HelloController">
+        <h1>Hello {{ message }}!</h1>
+        <input type="text" ng-model="message" placeholder="Enter your name">
+        <p>You typed: <strong>{{ message }}</strong></p>
+    </div>
+</body>
+</html>

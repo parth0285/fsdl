@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Registration Form</title>
+    <!-- Internal CSS -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .output {
+            margin-top: 20px;
+            text-align: left;
+        }
+        .error {
+            color: red;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <h1>User Registration Form</h1>
+    <div class="container">
+        <input type="text" id="name" placeholder="Enter your name">
+        <input type="email" id="email" placeholder="Enter your email">
+        <input type="date" id="dob" placeholder="Enter your date of birth">
+        <select id="gender">
+            <option value="">Select Gender</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Other</option>
+        </select>
+        <button onclick="submitForm()">Submit</button>
+        <div id="error" class="error"></div>
+        <div id="output" class="output"></div>
+    </div>
+
+    <!-- Internal JavaScript -->
+    <script>
+        // Function to handle form submission
+        function submitForm() {
+            // Clear previous errors and output
+            document.getElementById('error').innerText = '';
+            document.getElementById('output').innerHTML = '';
+
+            // Get form values
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const dob = document.getElementById('dob').value;
+            const gender = document.getElementById('gender').value;
+
+            // Validate inputs
+            try {
+                if (!name) throw new Error('Name is required.');
+                if (!email) throw new Error('Email is required.');
+                if (!dob) throw new Error('Date of birth is required.');
+                if (!gender) throw new Error('Gender is required.');
+
+                // Validate email format using a simple regex
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(email)) {
+                    throw new Error('Invalid email format.');
+                }
+
+                // Calculate age from date of birth
+                const dobDate = new Date(dob);
+                const today = new Date();
+                let age = today.getFullYear() - dobDate.getFullYear();
+                const monthDiff = today.getMonth() - dobDate.getMonth();
+                if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < dobDate.getDate())) {
+                    age--;
+                }
+
+                // Validate age
+                if (age < 18) {
+                    throw new Error('You must be at least 18 years old.');
+                }
+
+                // Create user object
+                const user = {
+                    name: name,
+                    email: email,
+                    dob: dobDate.toLocaleDateString(),
+                    gender: gender,
+                    age: age
+                };
+
+                // Display user details
+                displayUserDetails(user);
+            } catch (error) {
+                // Handle errors
+                document.getElementById('error').innerText = error.message;
+            }
+        }
+
+        // Function to display user details
+        function displayUserDetails(user) {
+            const outputDiv = document.getElementById('output');
+            outputDiv.innerHTML = `
+                <h2>User Details</h2>
+                <p><strong>Name:</strong> ${user.name}</p>
+                <p><strong>Email:</strong> ${user.email}</p>
+                <p><strong>Date of Birth:</strong> ${user.dob}</p>
+                <p><strong>Gender:</strong> ${user.gender}</p>
+                <p><strong>Age:</strong> ${user.age}</p>
+            `;
+        }
+
+        // Example of using arrays and strings
+        function exampleArraysAndStrings() {
+            const fruits = ['Apple', 'Banana', 'Cherry'];
+            const sentence = `My favorite fruits are ${fruits.join(', ')}.`;
+            console.log(sentence); // Output: "My favorite fruits are Apple, Banana, Cherry."
+        }
+        exampleArraysAndStrings();
+    </script>
+</body>
+</html>

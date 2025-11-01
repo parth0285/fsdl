@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Masterclass</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+        
+* {
+    box-sizing: border-box;
+}
+
+/* Element Selector */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+}
+
+header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Class Selector */
+.color-box {
+    padding: 20px;
+    margin: 10px;
+    text-align: center;
+    display: inline-block;
+    width: 100px;
+    border-radius: 5px;
+}
+
+/* ID Selector */
+#fonts .font-example {
+    font-family: 'Georgia', serif;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Table Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+th, td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+/* List Styling */
+ul {
+    list-style-type: square;
+    padding-left: 20px;
+}
+
+ol {
+    list-style-type: decimal;
+    padding-left: 20px;
+}
+
+/* Pseudo-class Example */
+a.pseudo-example {
+    color: #FF5733;
+    text-decoration: none;
+}
+
+a.pseudo-example:hover {
+    color: #4CAF50;
+    text-decoration: underline;
+}
+
+/* Pseudo-element Example */
+.pseudo-element-example::first-line {
+    font-weight: bold;
+    color: #4CAF50;
+}
+
+/* Child Selector */
+.selector-example > p {
+    color: #333;
+    font-style: italic;
+}
+
+/* Footer Styling */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    margin-top: 20px;
+}
+    </style>
+</head>
+<body>
+    <header>
+        <h1>CSS Masterclass</h1>
+        <p>Exploring all aspects of CSS</p>
+    </header>
+
+    <main>
+        <!-- Color and Background Section -->
+        <section id="color-background">
+            <h2>Colors and Backgrounds</h2>
+            <div class="color-box" style="background-color: #4CAF50;">Green</div>
+            <div class="color-box" style="background-color: #FF5733;">Orange</div>
+            <div class="color-box" style="background-color: #33A8FF; color: white;">Blue</div>
+        </section>
+
+        <!-- Fonts Section -->
+        <section id="fonts">
+            <h2>Fonts</h2>
+            <p class="font-example">This is a paragraph with custom font styling.</p>
+        </section>
+
+        <!-- Tables Section -->
+        <section id="tables">
+            <h2>Tables</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>City</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>John Doe</td>
+                        <td>28</td>
+                        <td>New York</td>
+                    </tr>
+                    <tr>
+                        <td>Jane Smith</td>
+                        <td>34</td>
+                        <td>Los Angeles</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Lists Section -->
+        <section id="lists">
+            <h2>Lists</h2>
+            <ul>
+                <li>Unordered List Item 1</li>
+                <li>Unordered List Item 2</li>
+                <li>Unordered List Item 3</li>
+            </ul>
+            <ol>
+                <li>Ordered List Item 1</li>
+                <li>Ordered List Item 2</li>
+                <li>Ordered List Item 3</li>
+            </ol>
+        </section>
+
+        <!-- Selectors, Pseudo-classes, and Pseudo-elements Section -->
+        <section id="selectors">
+            <h2>Selectors, Pseudo-classes, and Pseudo-elements</h2>
+            <div class="selector-example">
+                <p>This is a paragraph inside a div.</p>
+                <p>This is another paragraph inside a div.</p>
+            </div>
+            <a href="#" class="pseudo-example">Hover over this link</a>
+            <p class="pseudo-element-example">This paragraph has a custom first line.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 CSS Masterclass</p>
+    </footer>
+</body>
+</html>

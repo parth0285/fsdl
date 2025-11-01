@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Menu</title>
+    <style>
+        /* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f9f9f9;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
+}
+
+header p {
+    margin: 10px 0 0;
+    font-size: 1.2em;
+}
+
+nav {
+    margin-top: 15px;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 1.1em;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* Menu Sections */
+.menu-section {
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 1200px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.menu-section h2 {
+    color: #333;
+    border-bottom: 2px solid #333;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    font-size: 2em;
+}
+
+.menu-section ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.menu-section ul li {
+    margin-bottom: 20px;
+}
+
+.menu-section ul li h3 {
+    margin: 0;
+    font-size: 1.5em;
+    color: #555;
+}
+
+.menu-section ul li img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 8px;
+    margin-top: 10px;
+}
+
+.menu-section ul li p {
+    margin: 10px 0 0;
+    color: #777;
+}
+
+/* Table Styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table th, table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+table th {
+    background-color: #333;
+    color: #fff;
+}
+
+table tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Reservation Form Styles */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+form label {
+    font-weight: bold;
+    color: #555;
+}
+
+form input, form textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+}
+
+form input:focus, form textarea:focus {
+    border-color: #333;
+    outline: none;
+}
+
+form button {
+    padding: 10px 15px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #555;
+}
+
+/* Multimedia Section */
+video {
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 15px;
+    margin-top: 30px;
+}
+
+footer p {
+    margin: 0;
+    font-size: 1em;
+}
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <h1>Welcome to Our Hotel Restaurant</h1>
+        <p>Enjoy our special dishes from around the world!</p>
+        <nav>
+            <a href="#appetizers">Appetizers</a> |
+            <a href="#main-courses">Main Courses</a> |
+            <a href="#desserts">Desserts</a> |
+            <a href="#reservation">Make a Reservation</a>
+        </nav>
+    </header>
+
+    <!-- Appetizers Section -->
+    <div class="menu-section" id="appetizers">
+        <h2>Appetizers</h2>
+        <ul>
+            <li>
+                <h3>Bruschetta</h3>
+                <img src="https://via.placeholder.com/400x200" alt="Bruschetta">
+                <p>Grilled bread topped with tomato, garlic, and basil.</p>
+            </li>
+            <li>
+                <h3>Stuffed Mushrooms</h3>
+                <img src="https://via.placeholder.com/400x200" alt="Stuffed Mushrooms">
+                <p>Mushrooms stuffed with a blend of cheeses and herbs.</p>
+            </li>
+            <li>
+                <h3>Caprese Salad</h3>
+                <img src="https://via.placeholder.com/400x200" alt="Caprese Salad">
+                <p>Fresh mozzarella, tomatoes, basil, and balsamic glaze.</p>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Main Courses Section -->
+    <div class="menu-section" id="main-courses">
+        <h2>Main Courses</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Dish</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Grilled Salmon</td>
+                    <td>Served with garlic butter sauce and roasted vegetables.</td>
+                    <td>$18.99</td>
+                </tr>
+                <tr>
+                    <td>Beef Wellington</td>
+                    <td>Beef tenderloin wrapped in puff pastry with mushroom duxelles.</td>
+                    <td>$24.99</td>
+                </tr>
+                <tr>
+                    <td>Vegetable Stir-fry</td>
+                    <td>A mix of seasonal vegetables stir-fried with soy sauce and ginger.</td>
+                    <td>$14.99</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Desserts Section -->
+    <div class="menu-section" id="desserts">
+        <h2>Desserts</h2>
+        <ul>
+            <li>
+                <h3>Tiramisu</h3>
+                <img src="https://via.placeholder.com/400x200" alt="Tiramisu">
+                <p>A classic Italian dessert made with coffee-soaked ladyfingers and mascarpone cream.</p>
+            </li>
+            <li>
+                <h3>Chocolate Lava Cake</h3>
+                <img src="https://via.placeholder.com/400x200" alt="Chocolate Lava Cake">
+                <p>A warm, gooey chocolate cake with a molten center.</p>
+            </li>
+            <li>
+                <h3>Crème Brûlée</h3>
+                <img src="https://via.placeholder.com/400x200" alt="Crème Brûlée">
+                <p>Rich custard topped with a crisp caramelized sugar crust.</p>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Reservation Form -->
+    <div class="menu-section" id="reservation">
+        <h2>Make a Reservation</h2>
+        <form action="#" method="post">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="date">Date:</label>
+            <input type="date" id="date" name="date" required>
+
+            <label for="time">Time:</label>
+            <input type="time" id="time" name="time" required>
+
+            <label for="guests">Number of Guests:</label>
+            <input type="number" id="guests" name="guests" min="1" required>
+
+            <label for="message">Special Requests:</label>
+            <textarea id="message" name="message" rows="4"></textarea>
+
+            <button type="submit">Submit Reservation</button>
+        </form>
+    </div>
+
+    <!-- Multimedia Section -->
+    <div class="menu-section">
+        <h2>Explore Our Restaurant</h2>
+        <video controls width="100%">
+            <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Our Hotel Restaurant | All Rights Reserved</p>
+    </footer>
+
+</body>
+</html>

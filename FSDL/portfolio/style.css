@@ -1,0 +1,74 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: slategrey;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    text-align: center;
+}
+
+h1 {
+    margin-top: 30px;
+    font-size: 2.5rem;
+    color: #333;
+}
+
+/* Styling for navigation links */
+nav {
+    background-color: #007BFF;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    padding: 10px 20px;
+    margin: 0 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+nav a:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+section {
+    margin-top: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px; /* Adds spacing between links */
+}
+
+section a {
+    text-decoration: none;
+    color: #060b10;
+    font-size: 1.2rem;
+    padding: 10px 20px;
+    border: 2px solid #060b10;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    display: inline-block; /* Ensures padding and margins work correctly */
+}
+
+section a:hover {
+    background-color: #007BFF;
+    color: white;
+    border-color: #007BFF;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    nav a {
+        display: block;
+        margin: 10px 0; /* Stack navigation links vertically on smaller screens */
+    }
+
+    section a {
+        font-size: 1rem; /* Reduce font size for smaller screens */
+        padding: 8px 15px;
+    }
+}
